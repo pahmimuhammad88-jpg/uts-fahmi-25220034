@@ -1,0 +1,266 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Jost", system-ui, sans-serif;
+  background: #ffffff;
+  color: #1d2433;
+  min-height: 100vh;
+  padding: 0;
+}
+
+.app {
+  width: 100%;
+  max-width: none;
+  min-height: 100vh;
+  margin: 0 auto;
+  background: #e6f0ff;
+  border-radius: 28px;
+  padding: 24px 26px;
+  display: grid;
+  grid-template-columns: 215px 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "header  header"
+    "sidebar content";
+  gap: 22px 14px;
+}
+
+.header {
+  grid-area: header;
+  display: grid;
+  grid-template-columns: 1fr minmax(180px, 217px);
+  align-items: center;
+  gap: 16px;
+}
+
+.brand {
+  font-size: 22px;
+  font-weight: 700;
+  color: #123f78;
+}
+
+.search {
+  width: 100%;
+  padding: 8px 14px;
+  font: inherit;
+  font-size: 10px;
+  border: 1px solid #7aa7ff;
+  border-radius: 10px;
+  background: #eaf1fb;
+  text-align: center;
+}
+
+.search:focus {
+  outline: 2px solid #0052b4;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  background: #0052b4;
+  border-radius: 18px;
+  padding: 36px 0;
+}
+
+.sidebar ul {
+  list-style: none;
+  display: grid;
+  gap: 4px;
+}
+
+.menu-item {
+  display: block;
+  padding: 14px 0 14px 74px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 20px;
+  text-decoration: none;
+  transition: background .2s, font-size .2s ease, padding-left .2s ease;
+}
+
+.menu-item:hover,
+.menu-item:focus-visible {
+  background: rgba(255, 255, 255, .12);
+  font-size: 17px;
+  padding-left: 70px;
+}
+
+.menu-item.active {
+  background: #123f78;
+}
+
+.menu-item.settings {
+  color: #4fe3f5;
+}
+
+.menu-item.signout {
+  color: #ffb08c;
+}
+
+.content {
+  grid-area: content;
+  display: grid;
+  grid-template-columns: 1.7fr 1fr 1.2fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "hero    hero    hero"
+    "stat    progres aktif"
+    "lampiran lampiran lampiran";
+  gap: 14px;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 14px 16px;
+  transition: background .3s;
+}
+
+.card h3 {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.hero {
+  grid-area: hero;
+  background: #0052b4;
+  color: #fff;
+  padding: 22px 26px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 20px;
+}
+
+.hero h2 {
+  font-size: 23px;
+  line-height: 25px;
+  margin-bottom: 14px;
+  max-width: 420px;
+}
+
+.hero p {
+  font-size: 12px;
+  line-height: 20px;
+  max-width: 400px;
+}
+
+.avatar {
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  border: 3px solid #cfd8ff;
+  overflow: hidden;
+  margin-right: 60px;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.chart {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  max-width: 460px;
+  margin-inline: auto;
+}
+
+.progres,
+.aktif {
+  display: flex;
+  flex-direction: column;
+}
+
+.list {
+  list-style: none;
+  display: grid;
+  grid-auto-rows: 1fr;
+  flex: 1;
+  gap: 6px;
+}
+
+.list li {
+  background: #eaf1fb;
+  border-radius: 12px;
+  padding: 9px 12px;
+  display: grid;
+  align-content: center;
+  gap: 4px;
+  transition: background .3s;
+}
+
+.list strong {
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.list span {
+  font-size: 9px;
+  font-weight: 600;
+  color: #0052b4;
+}
+
+.lampiran {
+  grid-area: lampiran;
+}
+
+.docs {
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+
+.docs li {
+  background: #eaf1fb;
+  border-radius: 12px;
+  padding: 14px 12px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 14px;
+  font-size: 11px;
+  transition: background .3s;
+}
+
+.docs a {
+  color: #0052b4;
+  font-weight: 700;
+}
+
+.docs a::before {
+  content: "|";
+  display: inline-block;
+  margin-right: 14px;
+  font-weight: 400;
+  color: #1d2433;
+}
+
+.card.merah {
+  background: #f8d0d0;
+}
+
+.card.merah .list li,
+.card.merah .docs li {
+  background: #f3b8b8;
+}
+
+.list li:hover,
+.docs li:hover {
+  background: #cfe0f8;
+}
+
+.card.merah .list li:hover,
+.card.merah .docs li:hover {
+  background: #eba6a6;
+}
